@@ -1,5 +1,9 @@
-import {CoffeeLogoSection} from "../createAccount/component/CoffeeLogoSection";
+import {CreateAccountSection} from "./component/CreateAccountSection";
 
-export default function signUpPage() {
-  return <div className="flex"></div>;
+export default function createAccount() {
+  return (
+    <div className="flex w-full h-full">
+      <CreateAccountSection />
+    </div>
+  );
 }

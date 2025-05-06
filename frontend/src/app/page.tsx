@@ -1,3 +1,10 @@
+import {CreateAccountSection} from "./(auth)/createAccount/component/CreateAccountSection";
+
 export default function Home() {
-  return <div>hello</div>;
+  return (
+    <div>
+      <p>Hello</p>
+      <CreateAccountSection />
+    </div>
+  );
 }
