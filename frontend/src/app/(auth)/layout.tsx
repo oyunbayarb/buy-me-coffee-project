@@ -1,5 +1,5 @@
-import {CoffeeLogoSection} from "./createAccount/component/CoffeeLogoSection";
-import {Button} from "@/components/ui/button";
+import {CoffeeLogoSection} from "./createAccount/CoffeeLogoSection";
+
 export default function AuthLayout({children}: {children: React.ReactNode}) {
   return (
     <div className="flex h-screen">
