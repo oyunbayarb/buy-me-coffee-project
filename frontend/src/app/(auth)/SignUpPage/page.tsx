@@ -1,10 +1,9 @@
-import {CreateEmailPassword, CreateUserName} from "./components";
+import {SignUpPage} from "./components";
 
 export default function createAccountPage() {
   return (
     <div>
-      <CreateUserName></CreateUserName>
-      <CreateEmailPassword></CreateEmailPassword>
+      <SignUpPage />
     </div>
   );
 }

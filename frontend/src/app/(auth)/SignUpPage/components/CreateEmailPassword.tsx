@@ -4,8 +4,8 @@ import {ButtonComponent} from "./ButtonComponent";
 import {InputComponent} from "./InputComponent";
 
 export const CreateEmailPassword = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
 
   return (
     <div className="flex w-full h-full flex-col p-10 gap-[370px] items-center relative">
@@ -22,7 +22,7 @@ export const CreateEmailPassword = () => {
         </div>
         <InputComponent
           inputTitle={"Email"}
-          placeholder={"Enter enmail here"}
+          placeholder={"Enter email here"}
           className="w-full"
         ></InputComponent>
 

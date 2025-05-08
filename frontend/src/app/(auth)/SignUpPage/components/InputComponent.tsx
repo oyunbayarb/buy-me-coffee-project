@@ -15,7 +15,6 @@ export const InputComponent = ({
   type,
   placeholder,
   error,
-  className,
   setChange,
 }: FormInputProps) => {
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +26,7 @@ export const InputComponent = ({
       <Input
         onChange={handleOnChange}
         placeholder={placeholder}
-        className={error!.length > 0 ? "border-red-400" : ""}
+        className={error ? "border-red-400" : ""}
         type={type}
       ></Input>
       {error && <p className="text-sm text-red-500">{error}</p>}

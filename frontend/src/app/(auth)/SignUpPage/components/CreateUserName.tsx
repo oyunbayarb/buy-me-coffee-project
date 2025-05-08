@@ -9,23 +9,19 @@ export const CreateUserName = ({
   setStep: Dispatch<SetStateAction<number>>;
 }) => {
   const [userName, setUserName] = useState<string>("");
-  const [error, setError] = useState<string>("g");
-  const [step1, setStep1] = useState(0);
-
-  // const existingUser = localStorage.getItem("user");
+  const existingUser = "baynaa";
+  const [error, setError] = useState<string>();
 
   const handleSubmitUserName = (setStep: Dispatch<SetStateAction<number>>) => {
     if (userName.length < 5) {
-      console.log("working error");
       setError("Username must be at least 5 characters.");
-      // } else if (existingUser === userName) {
-      setError("Username already taken");
+    } else if (existingUser === userName) {
+      setError("Username already exists");
     } else {
-      setError("");
-      setStep(step1 + 1);
+      setError("Username is available");
+      setStep(1);
     }
   };
-  console.log("working", userName);
 
   return (
     <div className="flex w-full h-full flex-col p-10 gap-[370px] items-center relative">
