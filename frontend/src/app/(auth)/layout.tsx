@@ -1,4 +1,4 @@
-import {CoffeeLogoSection} from "./createAccount/CoffeeLogoSection";
+import {CoffeeLogoSection} from "./SignUpPage/CoffeeLogoSection";
 
 export default function AuthLayout({children}: {children: React.ReactNode}) {
   return (
