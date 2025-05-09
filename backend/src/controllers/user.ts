@@ -2,12 +2,12 @@ import {Request, Response} from "express";
 import {prisma} from "../utils/prisma";
 
 export const CreateUser = async (req: Request, res: Response) => {
-  const {name, email, password} = req.body;
+  const {username, email, password} = req.body;
 
   try {
     const response = await prisma.user.create({
       data: {
-        name,
+        username,
         password,
         email,
       },
@@ -35,12 +35,12 @@ export const findUsers = async (req: Request, res: Response) => {
 
 export const updateUserById = async (req: Request, res: Response) => {
   const {id} = req.params;
-  const {name, email, password} = req.body;
+  const {username, email, password} = req.body;
 
   try {
     const response = await prisma.user.update({
       where: {id: Number(id)},
-      data: {email, password, name},
+      data: {email, password, username},
     });
     return res.send({
       success: true,
