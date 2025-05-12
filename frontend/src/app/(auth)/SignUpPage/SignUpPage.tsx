@@ -1,8 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {CreateEmailPassword} from "./CreateEmailPassword";
-import {CreateUserName} from "./CreateUserName";
+import {CreateEmailPassword, CreateUserName} from "./component";
 
 export const SignUpPage = () => {
   const [step, setStep] = useState<number>(0);
