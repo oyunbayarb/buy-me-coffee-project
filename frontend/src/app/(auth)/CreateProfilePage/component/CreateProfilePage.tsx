@@ -61,7 +61,7 @@ export const CreateProfilePage = () => {
               type="file"
               onChange={handleFileChange}
             />
-            <img src={file} className="absolute size-[160px]" />
+            <img src={file} className="size-[160px] rounded-full" />
           </div>
           <form
             onSubmit={form.handleSubmit(handleOnContinueButton)}
