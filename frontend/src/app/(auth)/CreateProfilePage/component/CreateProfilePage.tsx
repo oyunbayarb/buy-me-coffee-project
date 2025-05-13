@@ -17,7 +17,7 @@ import {
 
 import {Input} from "@/components/ui/input";
 import {ButtonComponent} from "../../SignUpPage/component";
-import {ChangeEventHandler, useState} from "react";
+import {ChangeEventHandler, Dispatch, SetStateAction, useState} from "react";
 
 const formSchema = z.object({
   name: z.string().min(5, {message: "Name must be at least 5 characters."}),
@@ -27,7 +27,11 @@ const handleOnContinueButton = (values: z.infer<typeof formSchema>) => {
   console.log(values.name);
 };
 
-export const CreateProfilePage = () => {
+export const CreateProfilePage = ({
+  setStep,
+}: {
+  setStep: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [file, setFile] = useState<any>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -37,8 +41,9 @@ export const CreateProfilePage = () => {
   });
 
   const handleFileChange = (event: ChangeEventHandler<HTMLInputElement>) => {
-    setFile(URL.createObjectURL(event!.target.files[0]));
+    setFile(URL.createObjectURL(event.target.files[0]));
   };
+  console.log(handleFileChange, "file");
 
   return (
     <div className="flex-col items-center p-10 flex gap-[200px]">
@@ -51,7 +56,7 @@ export const CreateProfilePage = () => {
           <ButtonComponent buttonText="Log out" />
         </div>
       </div>
-      <div className="w-[430px] h-[631px] flex gap-5 flex-col">
+      <div className="w-[430px] h-[631px] flex gap-10 flex-col">
         <Form {...form}>
           <p className="font-semibold text-2xl">Complete your profile page</p>
           <div className="size-[160px] relative">
@@ -89,7 +94,10 @@ export const CreateProfilePage = () => {
               <p>Social media URL</p>
               <Textarea placeholder="https://" />
             </div>
-            <ButtonComponent buttonText="Continue" />
+            <ButtonComponent
+              onClick={() => setStep(false)}
+              buttonText="Continue"
+            />
           </form>
         </Form>
       </div>
