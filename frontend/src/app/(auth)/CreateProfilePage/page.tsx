@@ -1,5 +1,5 @@
-import {CreateProfilePage} from "./component/CreateProfilePage";
+import {CreatePaymentPage} from "./component";
 
 export default function signUpPage() {
-  return <CreateProfilePage />;
+  return <CreatePaymentPage />;
 }
