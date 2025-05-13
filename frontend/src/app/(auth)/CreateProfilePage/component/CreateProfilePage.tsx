@@ -32,7 +32,7 @@ export const CreateProfilePage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "name",
+      name: "",
     },
   });
 
