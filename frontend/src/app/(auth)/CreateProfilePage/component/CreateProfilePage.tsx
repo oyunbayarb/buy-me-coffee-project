@@ -21,6 +21,8 @@ import {ChangeEventHandler, useState} from "react";
 
 const formSchema = z.object({
   name: z.string().min(5, {message: "Name must be at least 5 characters."}),
+  about: z.string().min(10, {message: "Write about yourself here"}),
+  social: z.string().url().min(1, {message: "Please enter a social link"}),
 });
 
 const handleOnContinueButton = (values: z.infer<typeof formSchema>) => {
@@ -32,7 +34,9 @@ export const CreateProfilePage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "name",
+      name: "",
+      about: "",
+      social: "",
     },
   });
 
@@ -61,7 +65,7 @@ export const CreateProfilePage = () => {
               type="file"
               onChange={handleFileChange}
             />
-            <img src={file} className="absolute size-[160px]" />
+            <img src={file} className="size-[160px] rounded-full" />
           </div>
           <form
             onSubmit={form.handleSubmit(handleOnContinueButton)}
@@ -80,15 +84,35 @@ export const CreateProfilePage = () => {
                 </FormItem>
               )}
             />
-
-            <div>
-              <p>About</p>
-              <Textarea placeholder="Write about yourself here" />
-            </div>
-            <div>
-              <p>Social media URL</p>
-              <Textarea placeholder="https://" />
-            </div>
+            <FormField
+              control={form.control}
+              name="about"
+              render={({field}) => (
+                <FormItem>
+                  <FormLabel>About</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Please write yourself here"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="social"
+              render={({field}) => (
+                <FormItem>
+                  <FormLabel>Social media URL</FormLabel>
+                  <FormControl>
+                    <Input placeholder="https://" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <ButtonComponent buttonText="Continue" />
           </form>
         </Form>
