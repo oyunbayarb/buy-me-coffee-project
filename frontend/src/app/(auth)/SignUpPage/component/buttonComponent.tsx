@@ -7,7 +7,7 @@ export const ButtonComponent = ({
 }: {
   buttonText: string;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }) => {
   return (
     <div>
