@@ -1,13 +1,11 @@
+import {CoffeeDonationSection} from "./components/CoffeeDonationSection";
 import {ProfileIntroSection} from "./components/ProfileIntroSection";
 
 export default function ViewPageSection() {
   return (
-    <div>
-      <div className="w-[1000px] h-fit p-6">
-        <div>
-          <ProfileIntroSection />
-        </div>
-      </div>
+    <div className="flex w-full h-screen p-6 justify-center items-center">
+      <ProfileIntroSection />
+      <CoffeeDonationSection />
     </div>
   );
 }
