@@ -1,7 +1,7 @@
 import {Heart} from "lucide-react";
 export const ProfileIntroSection = () => {
   return (
-    <div className="flex gap-5 flex-col w-[500px] p-6 h-fit ">
+    <div className="flex gap-5 flex-col w-[50%] p-6 h-fit ">
       <div className="p-6 gap-5 flex flex-col bg-white rounded-md border-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center gap-2 text-[20px]">
