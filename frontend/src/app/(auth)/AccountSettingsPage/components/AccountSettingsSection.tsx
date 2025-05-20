@@ -1,6 +1,6 @@
 import {Button} from "@/components/ui/button";
 import {Header} from "./Header";
-import {ProfileIntroSection} from "../../ViewPageSection/components";
+import {AccountInfoSection} from "./AccountInfoSection";
 
 export const AccountSettingsSection = () => {
   return (
@@ -23,7 +23,7 @@ export const AccountSettingsSection = () => {
         </div>
         <div className="flex gap-5 flex-col">
           <p className="text-[24px] font-bold">My account</p>
-          <ProfileIntroSection />
+          <AccountInfoSection />
         </div>
       </div>
     </div>

@@ -1,3 +1,3 @@
 export * from "./AccountSettingsSection";
 export * from "./Header";
-export * from "./PersonalInfoSection";
+export * from "./AccountInfoSection";

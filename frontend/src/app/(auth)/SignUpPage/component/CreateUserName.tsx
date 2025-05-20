@@ -1,8 +1,9 @@
 "use client";
 
 import {Dispatch, SetStateAction, useState} from "react";
-import {ButtonComponent} from "./buttonComponent";
+
 import {InputComponent} from "./inputComponent";
+import {ButtonComponent} from "./ButtonComponent";
 
 export const CreateUserName = ({
   setStep,
