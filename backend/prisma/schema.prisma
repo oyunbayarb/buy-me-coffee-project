@@ -17,9 +17,11 @@ model User {
   password String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  profile Profile?
 }
 model Profile{
   id    Int     @id @default(autoincrement())
+  user User @relation(fields:[userId], references: [id], onDelete: Cascade)
   name String
   about String
   image String
@@ -27,7 +29,7 @@ model Profile{
   backgroundImage String
   successMessage String
   password String
-  userId Int
+  userId Int @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
