@@ -23,6 +23,16 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type Profile = $Result.DefaultSelection<Prisma.$ProfilePayload>
+/**
+ * Model Donation
+ * 
+ */
+export type Donation = $Result.DefaultSelection<Prisma.$DonationPayload>
+/**
+ * Model BankCard
+ * 
+ */
+export type BankCard = $Result.DefaultSelection<Prisma.$BankCardPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +178,26 @@ export class PrismaClient<
     * ```
     */
   get profile(): Prisma.ProfileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.donation`: Exposes CRUD operations for the **Donation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Donations
+    * const donations = await prisma.donation.findMany()
+    * ```
+    */
+  get donation(): Prisma.DonationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bankCard`: Exposes CRUD operations for the **BankCard** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BankCards
+    * const bankCards = await prisma.bankCard.findMany()
+    * ```
+    */
+  get bankCard(): Prisma.BankCardDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +639,9 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Profile: 'Profile'
+    Profile: 'Profile',
+    Donation: 'Donation',
+    BankCard: 'BankCard'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "profile"
+      modelProps: "user" | "profile" | "donation" | "bankCard"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +812,154 @@ export namespace Prisma {
           }
         }
       }
+      Donation: {
+        payload: Prisma.$DonationPayload<ExtArgs>
+        fields: Prisma.DonationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DonationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DonationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>
+          }
+          findFirst: {
+            args: Prisma.DonationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DonationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>
+          }
+          findMany: {
+            args: Prisma.DonationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>[]
+          }
+          create: {
+            args: Prisma.DonationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>
+          }
+          createMany: {
+            args: Prisma.DonationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DonationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>[]
+          }
+          delete: {
+            args: Prisma.DonationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>
+          }
+          update: {
+            args: Prisma.DonationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>
+          }
+          deleteMany: {
+            args: Prisma.DonationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DonationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DonationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>[]
+          }
+          upsert: {
+            args: Prisma.DonationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationPayload>
+          }
+          aggregate: {
+            args: Prisma.DonationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDonation>
+          }
+          groupBy: {
+            args: Prisma.DonationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DonationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DonationCountArgs<ExtArgs>
+            result: $Utils.Optional<DonationCountAggregateOutputType> | number
+          }
+        }
+      }
+      BankCard: {
+        payload: Prisma.$BankCardPayload<ExtArgs>
+        fields: Prisma.BankCardFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BankCardFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BankCardFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          findFirst: {
+            args: Prisma.BankCardFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BankCardFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          findMany: {
+            args: Prisma.BankCardFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>[]
+          }
+          create: {
+            args: Prisma.BankCardCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          createMany: {
+            args: Prisma.BankCardCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BankCardCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>[]
+          }
+          delete: {
+            args: Prisma.BankCardDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          update: {
+            args: Prisma.BankCardUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          deleteMany: {
+            args: Prisma.BankCardDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BankCardUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BankCardUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>[]
+          }
+          upsert: {
+            args: Prisma.BankCardUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          aggregate: {
+            args: Prisma.BankCardAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBankCard>
+          }
+          groupBy: {
+            args: Prisma.BankCardGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BankCardGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BankCardCountArgs<ExtArgs>
+            result: $Utils.Optional<BankCardCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1046,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     profile?: ProfileOmit
+    donation?: DonationOmit
+    bankCard?: BankCardOmit
   }
 
   /* Types for Logging */
@@ -3245,6 +3427,2154 @@ export namespace Prisma {
 
 
   /**
+   * Model Donation
+   */
+
+  export type AggregateDonation = {
+    _count: DonationCountAggregateOutputType | null
+    _avg: DonationAvgAggregateOutputType | null
+    _sum: DonationSumAggregateOutputType | null
+    _min: DonationMinAggregateOutputType | null
+    _max: DonationMaxAggregateOutputType | null
+  }
+
+  export type DonationAvgAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    donotId: number | null
+  }
+
+  export type DonationSumAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    donotId: number | null
+  }
+
+  export type DonationMinAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    specialMessage: string | null
+    socialURLOrBuyMeACoffee: string | null
+    donotId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DonationMaxAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    specialMessage: string | null
+    socialURLOrBuyMeACoffee: string | null
+    donotId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DonationCountAggregateOutputType = {
+    id: number
+    amount: number
+    specialMessage: number
+    socialURLOrBuyMeACoffee: number
+    donotId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DonationAvgAggregateInputType = {
+    id?: true
+    amount?: true
+    donotId?: true
+  }
+
+  export type DonationSumAggregateInputType = {
+    id?: true
+    amount?: true
+    donotId?: true
+  }
+
+  export type DonationMinAggregateInputType = {
+    id?: true
+    amount?: true
+    specialMessage?: true
+    socialURLOrBuyMeACoffee?: true
+    donotId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DonationMaxAggregateInputType = {
+    id?: true
+    amount?: true
+    specialMessage?: true
+    socialURLOrBuyMeACoffee?: true
+    donotId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DonationCountAggregateInputType = {
+    id?: true
+    amount?: true
+    specialMessage?: true
+    socialURLOrBuyMeACoffee?: true
+    donotId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DonationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Donation to aggregate.
+     */
+    where?: DonationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationOrderByWithRelationInput | DonationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DonationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Donations
+    **/
+    _count?: true | DonationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DonationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DonationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DonationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DonationMaxAggregateInputType
+  }
+
+  export type GetDonationAggregateType<T extends DonationAggregateArgs> = {
+        [P in keyof T & keyof AggregateDonation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDonation[P]>
+      : GetScalarType<T[P], AggregateDonation[P]>
+  }
+
+
+
+
+  export type DonationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DonationWhereInput
+    orderBy?: DonationOrderByWithAggregationInput | DonationOrderByWithAggregationInput[]
+    by: DonationScalarFieldEnum[] | DonationScalarFieldEnum
+    having?: DonationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DonationCountAggregateInputType | true
+    _avg?: DonationAvgAggregateInputType
+    _sum?: DonationSumAggregateInputType
+    _min?: DonationMinAggregateInputType
+    _max?: DonationMaxAggregateInputType
+  }
+
+  export type DonationGroupByOutputType = {
+    id: number
+    amount: number
+    specialMessage: string
+    socialURLOrBuyMeACoffee: string
+    donotId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: DonationCountAggregateOutputType | null
+    _avg: DonationAvgAggregateOutputType | null
+    _sum: DonationSumAggregateOutputType | null
+    _min: DonationMinAggregateOutputType | null
+    _max: DonationMaxAggregateOutputType | null
+  }
+
+  type GetDonationGroupByPayload<T extends DonationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DonationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DonationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DonationGroupByOutputType[P]>
+            : GetScalarType<T[P], DonationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DonationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    donotId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["donation"]>
+
+  export type DonationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    donotId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["donation"]>
+
+  export type DonationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    donotId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["donation"]>
+
+  export type DonationSelectScalar = {
+    id?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    donotId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DonationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "specialMessage" | "socialURLOrBuyMeACoffee" | "donotId" | "createdAt" | "updatedAt", ExtArgs["result"]["donation"]>
+
+  export type $DonationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Donation"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      amount: number
+      specialMessage: string
+      socialURLOrBuyMeACoffee: string
+      donotId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["donation"]>
+    composites: {}
+  }
+
+  type DonationGetPayload<S extends boolean | null | undefined | DonationDefaultArgs> = $Result.GetResult<Prisma.$DonationPayload, S>
+
+  type DonationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DonationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DonationCountAggregateInputType | true
+    }
+
+  export interface DonationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Donation'], meta: { name: 'Donation' } }
+    /**
+     * Find zero or one Donation that matches the filter.
+     * @param {DonationFindUniqueArgs} args - Arguments to find a Donation
+     * @example
+     * // Get one Donation
+     * const donation = await prisma.donation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DonationFindUniqueArgs>(args: SelectSubset<T, DonationFindUniqueArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Donation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DonationFindUniqueOrThrowArgs} args - Arguments to find a Donation
+     * @example
+     * // Get one Donation
+     * const donation = await prisma.donation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DonationFindUniqueOrThrowArgs>(args: SelectSubset<T, DonationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Donation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationFindFirstArgs} args - Arguments to find a Donation
+     * @example
+     * // Get one Donation
+     * const donation = await prisma.donation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DonationFindFirstArgs>(args?: SelectSubset<T, DonationFindFirstArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Donation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationFindFirstOrThrowArgs} args - Arguments to find a Donation
+     * @example
+     * // Get one Donation
+     * const donation = await prisma.donation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DonationFindFirstOrThrowArgs>(args?: SelectSubset<T, DonationFindFirstOrThrowArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Donations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Donations
+     * const donations = await prisma.donation.findMany()
+     * 
+     * // Get first 10 Donations
+     * const donations = await prisma.donation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const donationWithIdOnly = await prisma.donation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DonationFindManyArgs>(args?: SelectSubset<T, DonationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Donation.
+     * @param {DonationCreateArgs} args - Arguments to create a Donation.
+     * @example
+     * // Create one Donation
+     * const Donation = await prisma.donation.create({
+     *   data: {
+     *     // ... data to create a Donation
+     *   }
+     * })
+     * 
+     */
+    create<T extends DonationCreateArgs>(args: SelectSubset<T, DonationCreateArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Donations.
+     * @param {DonationCreateManyArgs} args - Arguments to create many Donations.
+     * @example
+     * // Create many Donations
+     * const donation = await prisma.donation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DonationCreateManyArgs>(args?: SelectSubset<T, DonationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Donations and returns the data saved in the database.
+     * @param {DonationCreateManyAndReturnArgs} args - Arguments to create many Donations.
+     * @example
+     * // Create many Donations
+     * const donation = await prisma.donation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Donations and only return the `id`
+     * const donationWithIdOnly = await prisma.donation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DonationCreateManyAndReturnArgs>(args?: SelectSubset<T, DonationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Donation.
+     * @param {DonationDeleteArgs} args - Arguments to delete one Donation.
+     * @example
+     * // Delete one Donation
+     * const Donation = await prisma.donation.delete({
+     *   where: {
+     *     // ... filter to delete one Donation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DonationDeleteArgs>(args: SelectSubset<T, DonationDeleteArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Donation.
+     * @param {DonationUpdateArgs} args - Arguments to update one Donation.
+     * @example
+     * // Update one Donation
+     * const donation = await prisma.donation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DonationUpdateArgs>(args: SelectSubset<T, DonationUpdateArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Donations.
+     * @param {DonationDeleteManyArgs} args - Arguments to filter Donations to delete.
+     * @example
+     * // Delete a few Donations
+     * const { count } = await prisma.donation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DonationDeleteManyArgs>(args?: SelectSubset<T, DonationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Donations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Donations
+     * const donation = await prisma.donation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DonationUpdateManyArgs>(args: SelectSubset<T, DonationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Donations and returns the data updated in the database.
+     * @param {DonationUpdateManyAndReturnArgs} args - Arguments to update many Donations.
+     * @example
+     * // Update many Donations
+     * const donation = await prisma.donation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Donations and only return the `id`
+     * const donationWithIdOnly = await prisma.donation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DonationUpdateManyAndReturnArgs>(args: SelectSubset<T, DonationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Donation.
+     * @param {DonationUpsertArgs} args - Arguments to update or create a Donation.
+     * @example
+     * // Update or create a Donation
+     * const donation = await prisma.donation.upsert({
+     *   create: {
+     *     // ... data to create a Donation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Donation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DonationUpsertArgs>(args: SelectSubset<T, DonationUpsertArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Donations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationCountArgs} args - Arguments to filter Donations to count.
+     * @example
+     * // Count the number of Donations
+     * const count = await prisma.donation.count({
+     *   where: {
+     *     // ... the filter for the Donations we want to count
+     *   }
+     * })
+    **/
+    count<T extends DonationCountArgs>(
+      args?: Subset<T, DonationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DonationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Donation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DonationAggregateArgs>(args: Subset<T, DonationAggregateArgs>): Prisma.PrismaPromise<GetDonationAggregateType<T>>
+
+    /**
+     * Group by Donation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DonationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DonationGroupByArgs['orderBy'] }
+        : { orderBy?: DonationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DonationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDonationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Donation model
+   */
+  readonly fields: DonationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Donation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DonationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Donation model
+   */
+  interface DonationFieldRefs {
+    readonly id: FieldRef<"Donation", 'Int'>
+    readonly amount: FieldRef<"Donation", 'Int'>
+    readonly specialMessage: FieldRef<"Donation", 'String'>
+    readonly socialURLOrBuyMeACoffee: FieldRef<"Donation", 'String'>
+    readonly donotId: FieldRef<"Donation", 'Int'>
+    readonly createdAt: FieldRef<"Donation", 'DateTime'>
+    readonly updatedAt: FieldRef<"Donation", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Donation findUnique
+   */
+  export type DonationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * Filter, which Donation to fetch.
+     */
+    where: DonationWhereUniqueInput
+  }
+
+  /**
+   * Donation findUniqueOrThrow
+   */
+  export type DonationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * Filter, which Donation to fetch.
+     */
+    where: DonationWhereUniqueInput
+  }
+
+  /**
+   * Donation findFirst
+   */
+  export type DonationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * Filter, which Donation to fetch.
+     */
+    where?: DonationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationOrderByWithRelationInput | DonationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Donations.
+     */
+    cursor?: DonationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Donations.
+     */
+    distinct?: DonationScalarFieldEnum | DonationScalarFieldEnum[]
+  }
+
+  /**
+   * Donation findFirstOrThrow
+   */
+  export type DonationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * Filter, which Donation to fetch.
+     */
+    where?: DonationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationOrderByWithRelationInput | DonationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Donations.
+     */
+    cursor?: DonationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Donations.
+     */
+    distinct?: DonationScalarFieldEnum | DonationScalarFieldEnum[]
+  }
+
+  /**
+   * Donation findMany
+   */
+  export type DonationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * Filter, which Donations to fetch.
+     */
+    where?: DonationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationOrderByWithRelationInput | DonationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Donations.
+     */
+    cursor?: DonationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    distinct?: DonationScalarFieldEnum | DonationScalarFieldEnum[]
+  }
+
+  /**
+   * Donation create
+   */
+  export type DonationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Donation.
+     */
+    data: XOR<DonationCreateInput, DonationUncheckedCreateInput>
+  }
+
+  /**
+   * Donation createMany
+   */
+  export type DonationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Donations.
+     */
+    data: DonationCreateManyInput | DonationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Donation createManyAndReturn
+   */
+  export type DonationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Donations.
+     */
+    data: DonationCreateManyInput | DonationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Donation update
+   */
+  export type DonationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Donation.
+     */
+    data: XOR<DonationUpdateInput, DonationUncheckedUpdateInput>
+    /**
+     * Choose, which Donation to update.
+     */
+    where: DonationWhereUniqueInput
+  }
+
+  /**
+   * Donation updateMany
+   */
+  export type DonationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Donations.
+     */
+    data: XOR<DonationUpdateManyMutationInput, DonationUncheckedUpdateManyInput>
+    /**
+     * Filter which Donations to update
+     */
+    where?: DonationWhereInput
+    /**
+     * Limit how many Donations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Donation updateManyAndReturn
+   */
+  export type DonationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * The data used to update Donations.
+     */
+    data: XOR<DonationUpdateManyMutationInput, DonationUncheckedUpdateManyInput>
+    /**
+     * Filter which Donations to update
+     */
+    where?: DonationWhereInput
+    /**
+     * Limit how many Donations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Donation upsert
+   */
+  export type DonationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Donation to update in case it exists.
+     */
+    where: DonationWhereUniqueInput
+    /**
+     * In case the Donation found by the `where` argument doesn't exist, create a new Donation with this data.
+     */
+    create: XOR<DonationCreateInput, DonationUncheckedCreateInput>
+    /**
+     * In case the Donation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DonationUpdateInput, DonationUncheckedUpdateInput>
+  }
+
+  /**
+   * Donation delete
+   */
+  export type DonationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+    /**
+     * Filter which Donation to delete.
+     */
+    where: DonationWhereUniqueInput
+  }
+
+  /**
+   * Donation deleteMany
+   */
+  export type DonationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Donations to delete
+     */
+    where?: DonationWhereInput
+    /**
+     * Limit how many Donations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Donation without action
+   */
+  export type DonationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donation
+     */
+    select?: DonationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donation
+     */
+    omit?: DonationOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BankCard
+   */
+
+  export type AggregateBankCard = {
+    _count: BankCardCountAggregateOutputType | null
+    _avg: BankCardAvgAggregateOutputType | null
+    _sum: BankCardSumAggregateOutputType | null
+    _min: BankCardMinAggregateOutputType | null
+    _max: BankCardMaxAggregateOutputType | null
+  }
+
+  export type BankCardAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type BankCardSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type BankCardMinAggregateOutputType = {
+    id: number | null
+    country: string | null
+    firstName: string | null
+    lastName: string | null
+    cardNumber: string | null
+    expiryDate: Date | null
+    userId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BankCardMaxAggregateOutputType = {
+    id: number | null
+    country: string | null
+    firstName: string | null
+    lastName: string | null
+    cardNumber: string | null
+    expiryDate: Date | null
+    userId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BankCardCountAggregateOutputType = {
+    id: number
+    country: number
+    firstName: number
+    lastName: number
+    cardNumber: number
+    expiryDate: number
+    userId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BankCardAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type BankCardSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type BankCardMinAggregateInputType = {
+    id?: true
+    country?: true
+    firstName?: true
+    lastName?: true
+    cardNumber?: true
+    expiryDate?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BankCardMaxAggregateInputType = {
+    id?: true
+    country?: true
+    firstName?: true
+    lastName?: true
+    cardNumber?: true
+    expiryDate?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BankCardCountAggregateInputType = {
+    id?: true
+    country?: true
+    firstName?: true
+    lastName?: true
+    cardNumber?: true
+    expiryDate?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BankCardAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BankCard to aggregate.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BankCards
+    **/
+    _count?: true | BankCardCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BankCardAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BankCardSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BankCardMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BankCardMaxAggregateInputType
+  }
+
+  export type GetBankCardAggregateType<T extends BankCardAggregateArgs> = {
+        [P in keyof T & keyof AggregateBankCard]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBankCard[P]>
+      : GetScalarType<T[P], AggregateBankCard[P]>
+  }
+
+
+
+
+  export type BankCardGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BankCardWhereInput
+    orderBy?: BankCardOrderByWithAggregationInput | BankCardOrderByWithAggregationInput[]
+    by: BankCardScalarFieldEnum[] | BankCardScalarFieldEnum
+    having?: BankCardScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BankCardCountAggregateInputType | true
+    _avg?: BankCardAvgAggregateInputType
+    _sum?: BankCardSumAggregateInputType
+    _min?: BankCardMinAggregateInputType
+    _max?: BankCardMaxAggregateInputType
+  }
+
+  export type BankCardGroupByOutputType = {
+    id: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date
+    userId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: BankCardCountAggregateOutputType | null
+    _avg: BankCardAvgAggregateOutputType | null
+    _sum: BankCardSumAggregateOutputType | null
+    _min: BankCardMinAggregateOutputType | null
+    _max: BankCardMaxAggregateOutputType | null
+  }
+
+  type GetBankCardGroupByPayload<T extends BankCardGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BankCardGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BankCardGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BankCardGroupByOutputType[P]>
+            : GetScalarType<T[P], BankCardGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BankCardSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["bankCard"]>
+
+  export type BankCardSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["bankCard"]>
+
+  export type BankCardSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["bankCard"]>
+
+  export type BankCardSelectScalar = {
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BankCardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "country" | "firstName" | "lastName" | "cardNumber" | "expiryDate" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["bankCard"]>
+
+  export type $BankCardPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BankCard"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      country: string
+      firstName: string
+      lastName: string
+      cardNumber: string
+      expiryDate: Date
+      userId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["bankCard"]>
+    composites: {}
+  }
+
+  type BankCardGetPayload<S extends boolean | null | undefined | BankCardDefaultArgs> = $Result.GetResult<Prisma.$BankCardPayload, S>
+
+  type BankCardCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BankCardFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BankCardCountAggregateInputType | true
+    }
+
+  export interface BankCardDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BankCard'], meta: { name: 'BankCard' } }
+    /**
+     * Find zero or one BankCard that matches the filter.
+     * @param {BankCardFindUniqueArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BankCardFindUniqueArgs>(args: SelectSubset<T, BankCardFindUniqueArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BankCard that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BankCardFindUniqueOrThrowArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BankCardFindUniqueOrThrowArgs>(args: SelectSubset<T, BankCardFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BankCard that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardFindFirstArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BankCardFindFirstArgs>(args?: SelectSubset<T, BankCardFindFirstArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BankCard that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardFindFirstOrThrowArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BankCardFindFirstOrThrowArgs>(args?: SelectSubset<T, BankCardFindFirstOrThrowArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BankCards that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BankCards
+     * const bankCards = await prisma.bankCard.findMany()
+     * 
+     * // Get first 10 BankCards
+     * const bankCards = await prisma.bankCard.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bankCardWithIdOnly = await prisma.bankCard.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BankCardFindManyArgs>(args?: SelectSubset<T, BankCardFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BankCard.
+     * @param {BankCardCreateArgs} args - Arguments to create a BankCard.
+     * @example
+     * // Create one BankCard
+     * const BankCard = await prisma.bankCard.create({
+     *   data: {
+     *     // ... data to create a BankCard
+     *   }
+     * })
+     * 
+     */
+    create<T extends BankCardCreateArgs>(args: SelectSubset<T, BankCardCreateArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BankCards.
+     * @param {BankCardCreateManyArgs} args - Arguments to create many BankCards.
+     * @example
+     * // Create many BankCards
+     * const bankCard = await prisma.bankCard.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BankCardCreateManyArgs>(args?: SelectSubset<T, BankCardCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BankCards and returns the data saved in the database.
+     * @param {BankCardCreateManyAndReturnArgs} args - Arguments to create many BankCards.
+     * @example
+     * // Create many BankCards
+     * const bankCard = await prisma.bankCard.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BankCards and only return the `id`
+     * const bankCardWithIdOnly = await prisma.bankCard.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BankCardCreateManyAndReturnArgs>(args?: SelectSubset<T, BankCardCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BankCard.
+     * @param {BankCardDeleteArgs} args - Arguments to delete one BankCard.
+     * @example
+     * // Delete one BankCard
+     * const BankCard = await prisma.bankCard.delete({
+     *   where: {
+     *     // ... filter to delete one BankCard
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BankCardDeleteArgs>(args: SelectSubset<T, BankCardDeleteArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BankCard.
+     * @param {BankCardUpdateArgs} args - Arguments to update one BankCard.
+     * @example
+     * // Update one BankCard
+     * const bankCard = await prisma.bankCard.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BankCardUpdateArgs>(args: SelectSubset<T, BankCardUpdateArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BankCards.
+     * @param {BankCardDeleteManyArgs} args - Arguments to filter BankCards to delete.
+     * @example
+     * // Delete a few BankCards
+     * const { count } = await prisma.bankCard.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BankCardDeleteManyArgs>(args?: SelectSubset<T, BankCardDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BankCards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BankCards
+     * const bankCard = await prisma.bankCard.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BankCardUpdateManyArgs>(args: SelectSubset<T, BankCardUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BankCards and returns the data updated in the database.
+     * @param {BankCardUpdateManyAndReturnArgs} args - Arguments to update many BankCards.
+     * @example
+     * // Update many BankCards
+     * const bankCard = await prisma.bankCard.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BankCards and only return the `id`
+     * const bankCardWithIdOnly = await prisma.bankCard.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BankCardUpdateManyAndReturnArgs>(args: SelectSubset<T, BankCardUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BankCard.
+     * @param {BankCardUpsertArgs} args - Arguments to update or create a BankCard.
+     * @example
+     * // Update or create a BankCard
+     * const bankCard = await prisma.bankCard.upsert({
+     *   create: {
+     *     // ... data to create a BankCard
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BankCard we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BankCardUpsertArgs>(args: SelectSubset<T, BankCardUpsertArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BankCards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardCountArgs} args - Arguments to filter BankCards to count.
+     * @example
+     * // Count the number of BankCards
+     * const count = await prisma.bankCard.count({
+     *   where: {
+     *     // ... the filter for the BankCards we want to count
+     *   }
+     * })
+    **/
+    count<T extends BankCardCountArgs>(
+      args?: Subset<T, BankCardCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BankCardCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BankCard.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BankCardAggregateArgs>(args: Subset<T, BankCardAggregateArgs>): Prisma.PrismaPromise<GetBankCardAggregateType<T>>
+
+    /**
+     * Group by BankCard.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BankCardGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BankCardGroupByArgs['orderBy'] }
+        : { orderBy?: BankCardGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BankCardGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBankCardGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BankCard model
+   */
+  readonly fields: BankCardFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BankCard.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BankCardClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BankCard model
+   */
+  interface BankCardFieldRefs {
+    readonly id: FieldRef<"BankCard", 'Int'>
+    readonly country: FieldRef<"BankCard", 'String'>
+    readonly firstName: FieldRef<"BankCard", 'String'>
+    readonly lastName: FieldRef<"BankCard", 'String'>
+    readonly cardNumber: FieldRef<"BankCard", 'String'>
+    readonly expiryDate: FieldRef<"BankCard", 'DateTime'>
+    readonly userId: FieldRef<"BankCard", 'Int'>
+    readonly createdAt: FieldRef<"BankCard", 'DateTime'>
+    readonly updatedAt: FieldRef<"BankCard", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BankCard findUnique
+   */
+  export type BankCardFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard findUniqueOrThrow
+   */
+  export type BankCardFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard findFirst
+   */
+  export type BankCardFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BankCards.
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BankCards.
+     */
+    distinct?: BankCardScalarFieldEnum | BankCardScalarFieldEnum[]
+  }
+
+  /**
+   * BankCard findFirstOrThrow
+   */
+  export type BankCardFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BankCards.
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BankCards.
+     */
+    distinct?: BankCardScalarFieldEnum | BankCardScalarFieldEnum[]
+  }
+
+  /**
+   * BankCard findMany
+   */
+  export type BankCardFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Filter, which BankCards to fetch.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BankCards.
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    distinct?: BankCardScalarFieldEnum | BankCardScalarFieldEnum[]
+  }
+
+  /**
+   * BankCard create
+   */
+  export type BankCardCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The data needed to create a BankCard.
+     */
+    data: XOR<BankCardCreateInput, BankCardUncheckedCreateInput>
+  }
+
+  /**
+   * BankCard createMany
+   */
+  export type BankCardCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BankCards.
+     */
+    data: BankCardCreateManyInput | BankCardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BankCard createManyAndReturn
+   */
+  export type BankCardCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The data used to create many BankCards.
+     */
+    data: BankCardCreateManyInput | BankCardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BankCard update
+   */
+  export type BankCardUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The data needed to update a BankCard.
+     */
+    data: XOR<BankCardUpdateInput, BankCardUncheckedUpdateInput>
+    /**
+     * Choose, which BankCard to update.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard updateMany
+   */
+  export type BankCardUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BankCards.
+     */
+    data: XOR<BankCardUpdateManyMutationInput, BankCardUncheckedUpdateManyInput>
+    /**
+     * Filter which BankCards to update
+     */
+    where?: BankCardWhereInput
+    /**
+     * Limit how many BankCards to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BankCard updateManyAndReturn
+   */
+  export type BankCardUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The data used to update BankCards.
+     */
+    data: XOR<BankCardUpdateManyMutationInput, BankCardUncheckedUpdateManyInput>
+    /**
+     * Filter which BankCards to update
+     */
+    where?: BankCardWhereInput
+    /**
+     * Limit how many BankCards to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BankCard upsert
+   */
+  export type BankCardUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The filter to search for the BankCard to update in case it exists.
+     */
+    where: BankCardWhereUniqueInput
+    /**
+     * In case the BankCard found by the `where` argument doesn't exist, create a new BankCard with this data.
+     */
+    create: XOR<BankCardCreateInput, BankCardUncheckedCreateInput>
+    /**
+     * In case the BankCard was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BankCardUpdateInput, BankCardUncheckedUpdateInput>
+  }
+
+  /**
+   * BankCard delete
+   */
+  export type BankCardDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Filter which BankCard to delete.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard deleteMany
+   */
+  export type BankCardDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BankCards to delete
+     */
+    where?: BankCardWhereInput
+    /**
+     * Limit how many BankCards to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BankCard without action
+   */
+  export type BankCardDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3285,6 +5615,34 @@ export namespace Prisma {
   };
 
   export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+  export const DonationScalarFieldEnum: {
+    id: 'id',
+    amount: 'amount',
+    specialMessage: 'specialMessage',
+    socialURLOrBuyMeACoffee: 'socialURLOrBuyMeACoffee',
+    donotId: 'donotId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DonationScalarFieldEnum = (typeof DonationScalarFieldEnum)[keyof typeof DonationScalarFieldEnum]
+
+
+  export const BankCardScalarFieldEnum: {
+    id: 'id',
+    country: 'country',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    cardNumber: 'cardNumber',
+    expiryDate: 'expiryDate',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BankCardScalarFieldEnum = (typeof BankCardScalarFieldEnum)[keyof typeof BankCardScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3516,6 +5874,144 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
   }
 
+  export type DonationWhereInput = {
+    AND?: DonationWhereInput | DonationWhereInput[]
+    OR?: DonationWhereInput[]
+    NOT?: DonationWhereInput | DonationWhereInput[]
+    id?: IntFilter<"Donation"> | number
+    amount?: IntFilter<"Donation"> | number
+    specialMessage?: StringFilter<"Donation"> | string
+    socialURLOrBuyMeACoffee?: StringFilter<"Donation"> | string
+    donotId?: IntFilter<"Donation"> | number
+    createdAt?: DateTimeFilter<"Donation"> | Date | string
+    updatedAt?: DateTimeFilter<"Donation"> | Date | string
+  }
+
+  export type DonationOrderByWithRelationInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    donotId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DonationWhereInput | DonationWhereInput[]
+    OR?: DonationWhereInput[]
+    NOT?: DonationWhereInput | DonationWhereInput[]
+    amount?: IntFilter<"Donation"> | number
+    specialMessage?: StringFilter<"Donation"> | string
+    socialURLOrBuyMeACoffee?: StringFilter<"Donation"> | string
+    donotId?: IntFilter<"Donation"> | number
+    createdAt?: DateTimeFilter<"Donation"> | Date | string
+    updatedAt?: DateTimeFilter<"Donation"> | Date | string
+  }, "id">
+
+  export type DonationOrderByWithAggregationInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    donotId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DonationCountOrderByAggregateInput
+    _avg?: DonationAvgOrderByAggregateInput
+    _max?: DonationMaxOrderByAggregateInput
+    _min?: DonationMinOrderByAggregateInput
+    _sum?: DonationSumOrderByAggregateInput
+  }
+
+  export type DonationScalarWhereWithAggregatesInput = {
+    AND?: DonationScalarWhereWithAggregatesInput | DonationScalarWhereWithAggregatesInput[]
+    OR?: DonationScalarWhereWithAggregatesInput[]
+    NOT?: DonationScalarWhereWithAggregatesInput | DonationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Donation"> | number
+    amount?: IntWithAggregatesFilter<"Donation"> | number
+    specialMessage?: StringWithAggregatesFilter<"Donation"> | string
+    socialURLOrBuyMeACoffee?: StringWithAggregatesFilter<"Donation"> | string
+    donotId?: IntWithAggregatesFilter<"Donation"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Donation"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Donation"> | Date | string
+  }
+
+  export type BankCardWhereInput = {
+    AND?: BankCardWhereInput | BankCardWhereInput[]
+    OR?: BankCardWhereInput[]
+    NOT?: BankCardWhereInput | BankCardWhereInput[]
+    id?: IntFilter<"BankCard"> | number
+    country?: StringFilter<"BankCard"> | string
+    firstName?: StringFilter<"BankCard"> | string
+    lastName?: StringFilter<"BankCard"> | string
+    cardNumber?: StringFilter<"BankCard"> | string
+    expiryDate?: DateTimeFilter<"BankCard"> | Date | string
+    userId?: IntFilter<"BankCard"> | number
+    createdAt?: DateTimeFilter<"BankCard"> | Date | string
+    updatedAt?: DateTimeFilter<"BankCard"> | Date | string
+  }
+
+  export type BankCardOrderByWithRelationInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardWhereUniqueInput = Prisma.AtLeast<{
+    userId?: number
+    AND?: BankCardWhereInput | BankCardWhereInput[]
+    OR?: BankCardWhereInput[]
+    NOT?: BankCardWhereInput | BankCardWhereInput[]
+    id?: IntFilter<"BankCard"> | number
+    country?: StringFilter<"BankCard"> | string
+    firstName?: StringFilter<"BankCard"> | string
+    lastName?: StringFilter<"BankCard"> | string
+    cardNumber?: StringFilter<"BankCard"> | string
+    expiryDate?: DateTimeFilter<"BankCard"> | Date | string
+    createdAt?: DateTimeFilter<"BankCard"> | Date | string
+    updatedAt?: DateTimeFilter<"BankCard"> | Date | string
+  }, "userId">
+
+  export type BankCardOrderByWithAggregationInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BankCardCountOrderByAggregateInput
+    _avg?: BankCardAvgOrderByAggregateInput
+    _max?: BankCardMaxOrderByAggregateInput
+    _min?: BankCardMinOrderByAggregateInput
+    _sum?: BankCardSumOrderByAggregateInput
+  }
+
+  export type BankCardScalarWhereWithAggregatesInput = {
+    AND?: BankCardScalarWhereWithAggregatesInput | BankCardScalarWhereWithAggregatesInput[]
+    OR?: BankCardScalarWhereWithAggregatesInput[]
+    NOT?: BankCardScalarWhereWithAggregatesInput | BankCardScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BankCard"> | number
+    country?: StringWithAggregatesFilter<"BankCard"> | string
+    firstName?: StringWithAggregatesFilter<"BankCard"> | string
+    lastName?: StringWithAggregatesFilter<"BankCard"> | string
+    cardNumber?: StringWithAggregatesFilter<"BankCard"> | string
+    expiryDate?: DateTimeWithAggregatesFilter<"BankCard"> | Date | string
+    userId?: IntWithAggregatesFilter<"BankCard"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"BankCard"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BankCard"> | Date | string
+  }
+
   export type UserCreateInput = {
     email: string
     username: string
@@ -3669,6 +6165,157 @@ export namespace Prisma {
     backgroundImage?: StringFieldUpdateOperationsInput | string
     successMessage?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationCreateInput = {
+    amount: number
+    specialMessage: string
+    socialURLOrBuyMeACoffee: string
+    donotId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationUncheckedCreateInput = {
+    id?: number
+    amount: number
+    specialMessage: string
+    socialURLOrBuyMeACoffee: string
+    donotId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationUpdateInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: StringFieldUpdateOperationsInput | string
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    donotId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: StringFieldUpdateOperationsInput | string
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    donotId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationCreateManyInput = {
+    id?: number
+    amount: number
+    specialMessage: string
+    socialURLOrBuyMeACoffee: string
+    donotId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationUpdateManyMutationInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: StringFieldUpdateOperationsInput | string
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    donotId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: StringFieldUpdateOperationsInput | string
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    donotId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardCreateInput = {
+    id: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardUncheckedCreateInput = {
+    id: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardCreateManyInput = {
+    id: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3852,6 +6499,94 @@ export namespace Prisma {
   }
 
   export type ProfileSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DonationCountOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    donotId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    donotId?: SortOrder
+  }
+
+  export type DonationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    donotId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationMinOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    donotId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationSumOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    donotId?: SortOrder
+  }
+
+  export type BankCardCountOrderByAggregateInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type BankCardMaxOrderByAggregateInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardMinOrderByAggregateInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
   }

@@ -35,3 +35,25 @@ model Profile {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @default(now())
 }
+
+model Donation {
+  id                      Int      @id @default(autoincrement())
+  amount                  Int
+  specialMessage          String
+  socialURLOrBuyMeACoffee String
+  donotId                 Int
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @default(now())
+}
+
+model BankCard {
+  id         Int
+  country    String
+  firstName  String
+  lastName   String
+  cardNumber String
+  expiryDate DateTime
+  userId     Int      @unique
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now())
+}
