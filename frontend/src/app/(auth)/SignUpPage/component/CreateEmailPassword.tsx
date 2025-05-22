@@ -1,6 +1,9 @@
 // "use client";
 // import {useState} from "react";
 
+import {ButtonComponent} from "./ButtonComponent";
+import {InputComponent} from "./inputComponent";
+
 export const CreateEmailPassword = () => {
   // const [email, setEmail] = useState<string>("");
   // const [password, setPassword] = useState<string>("");

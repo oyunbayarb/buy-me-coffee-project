@@ -39,7 +39,7 @@ const formSchema = z.object({
 });
 
 const handleOnContinueButton = (values: z.infer<typeof formSchema>) => {
-  console.log(values, "values");
+const res = 
 };
 
 export const CreatePaymentPage = () => {
