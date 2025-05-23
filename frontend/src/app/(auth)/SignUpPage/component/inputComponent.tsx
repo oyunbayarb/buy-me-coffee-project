@@ -7,7 +7,8 @@ type FormInputProps = {
   placeholder: string;
   error?: string | null;
   className: string;
-  setChange: (_value: string) => void;
+  setChange?: (_value: string) => void;
+  ref?: RefObject<null>;
 };
 
 export const InputComponent = ({
@@ -16,6 +17,7 @@ export const InputComponent = ({
   placeholder,
   error,
   setChange,
+  ref,
 }: FormInputProps) => {
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setChange(event.target.value);

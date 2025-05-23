@@ -1,12 +1,21 @@
-// "use client";
-// import {useState} from "react";
+"use client";
 
+import {useRef, useState} from "react";
+import axios from "axios";
 import {ButtonComponent} from "./ButtonComponent";
 import {InputComponent} from "./inputComponent";
 
 export const CreateEmailPassword = () => {
-  // const [email, setEmail] = useState<string>("");
-  // const [password, setPassword] = useState<string>("");
+  const emailRef = useRef(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const handleOnClick = () => {
+    const res = axios.post("http://localhost:8000/SignUpPage", {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    });
+    console.log(res, "response");
+  };
 
   return (
     <div className="flex w-full h-full flex-col p-10 gap-[370px] items-center relative">
@@ -23,12 +32,14 @@ export const CreateEmailPassword = () => {
         </div>
         <InputComponent
           inputTitle={"Email"}
+          ref={emailRef}
           placeholder={"Enter email here"}
           className="w-full"
         ></InputComponent>
 
         <InputComponent
           inputTitle={"Password"}
+          ref={passwordRef}
           placeholder={"Enter password here"}
           className="w-full"
         ></InputComponent>
@@ -36,6 +47,9 @@ export const CreateEmailPassword = () => {
         <ButtonComponent
           buttonText={"Continue"}
           className="w-full"
+          onClick={() => {
+            handleOnClick;
+          }}
         ></ButtonComponent>
       </div>
     </div>
